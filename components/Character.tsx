@@ -42,7 +42,7 @@ export const Character: React.FC<CharacterProps> = ({ status, className, categor
     return (
         <div 
             className={`
-                relative origin-bottom
+                origin-bottom
                 transition-all duration-1000 ease-in-out
                 ${status === 'success' ? 'animate-jump-happy' : ''}
                 ${status === 'error' ? 'animate-shake' : ''}
@@ -53,7 +53,7 @@ export const Character: React.FC<CharacterProps> = ({ status, className, categor
             `}
         >
             {/* Status Icons Bubble - Adjusted top position */}
-            <div className="absolute -top-[25%] left-1/2 transform -translate-x-1/2 w-full flex justify-center pointer-events-none z-50">
+            <div className="absolute -top-[30%] left-1/2 transform -translate-x-1/2 w-full flex justify-center pointer-events-none z-50">
                 {status === 'success' ? (
                     <span className="text-4xl md:text-5xl filter drop-shadow-md animate-bounce">💡</span>
                 ) : status === 'idle' || status === 'error' ? (

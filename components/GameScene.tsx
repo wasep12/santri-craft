@@ -63,7 +63,7 @@ export const GameScene: React.FC<GameSceneProps> = ({ status, title, description
                     className={`
                         absolute z-20 transition-all duration-1000 origin-bottom
                         ${isWudu 
-                            ? `bottom-[8%] /* Grounded level */
+                            ? `bottom-[20%] /* Grounded level with Faucet */
                                w-[22%] h-auto aspect-[0.6] 
                                ${status === 'success' ? 'left-[45%]' : 'left-[15%]'}` 
                             : `/* Non-Wudu: Close Up / Center */
@@ -75,7 +75,7 @@ export const GameScene: React.FC<GameSceneProps> = ({ status, title, description
 
                 {/* Faucet Structure (Only for Fiqh/Wudu context) */}
                 {isWudu && (
-                <div className="absolute bottom-[8%] right-[15%] z-10 w-[15%] h-[40%]">
+                <div className="absolute bottom-[20%] right-[15%] z-10 w-[15%] h-[40%]">
                     {/* Vertical Pipe Stand - Anchored to bottom of faucet container */}
                     <div className="w-[25%] h-full bg-gray-500 border-2 border-gray-700 absolute bottom-0 right-0"></div>
                     

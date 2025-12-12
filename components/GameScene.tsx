@@ -52,7 +52,7 @@ export const GameScene: React.FC<GameSceneProps> = ({ status, title, description
             flex flex-col justify-center items-center 
             overflow-hidden shrink-0
             shadow-none md:shadow-none
-            h-[38vh] md:h-auto
+            h-[34vh] md:h-auto
         `}>
             {/* Dynamic Overlay */}
             <div className={`absolute inset-0 opacity-90 z-0 ${category === 'sejarah' ? 'bg-orange-100' : 'bg-[#87CEEB]'}`}></div>

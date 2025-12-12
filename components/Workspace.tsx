@@ -66,13 +66,16 @@ export const Workspace: React.FC<WorkspaceProps> = ({
             </div>
 
             {/* Main Selection Grid (Toolbox) */}
-            <div className="flex-1 bg-gray-900 border-2 md:border-4 border-gray-600 rounded p-2 md:p-4 relative overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
+            <div
+                className="flex-1 bg-gray-900 border-2 md:border-4 border-gray-600 rounded p-2 md:p-4 relative overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 max-h-[calc(100vh-260px)] md:max-h-none"
+                style={{ WebkitOverflowScrolling: 'touch' as any, touchAction: 'pan-y', paddingBottom: 'env(safe-area-inset-bottom)' }}
+            >
                 <div className="absolute top-0 left-0 bg-blue-500 text-white px-2 md:px-3 py-1 text-xs md:text-sm font-bold rounded-br border-b-2 border-r-2 border-blue-700 z-10 shadow-md">
                     PILIH BLOK
                 </div>
 
                 {/* Grid Responsif: 2 kolom di mobile, mungkin 3 di tablet besar jika perlu */}
-                <div className="mt-6 md:mt-8 grid grid-cols-2 gap-2 md:gap-3 pb-32 md:pb-4">
+                <div className="mt-6 md:mt-8 grid grid-cols-2 gap-2 md:gap-3 pb-56 md:pb-4">
                     {shuffledBlocks.map(blockId => {
                         const block = getBlockData(blockId);
                         if (!block) return null;

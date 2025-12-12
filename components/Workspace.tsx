@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { BlockData, LevelData, GameStatus } from '../types';
 import { BlockItem } from './BlockItem';
 import { getBlockData } from '../data/constants';
@@ -26,6 +26,17 @@ export const Workspace: React.FC<WorkspaceProps> = ({
         const index = workspace.findIndex(b => b.id === blockId);
         return index === -1 ? undefined : index + 1;
     };
+
+    // Shuffle blocks logic using useMemo to prevent reshuffling on every render
+    const shuffledBlocks = useMemo(() => {
+        const blocks = [...levelData.availableBlocks];
+        // Fisher-Yates Shuffle Algorithm
+        for (let i = blocks.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [blocks[i], blocks[j]] = [blocks[j], blocks[i]];
+        }
+        return blocks;
+    }, [levelData.id]); // Re-shuffle only when level ID changes
 
     return (
         <section className="w-full md:w-1/2 flex-1 md:h-auto bg-gray-800 border-t-4 md:border-t-0 md:border-l-4 border-gray-900 p-2 md:p-4 flex flex-col gap-2 md:gap-4 text-white overflow-hidden z-30 relative">
@@ -62,7 +73,7 @@ export const Workspace: React.FC<WorkspaceProps> = ({
                 
                 {/* Grid Responsif: 2 kolom di mobile, mungkin 3 di tablet besar jika perlu */}
                 <div className="mt-6 md:mt-8 grid grid-cols-2 gap-2 md:gap-3 pb-4">
-                    {levelData.availableBlocks.map(blockId => {
+                    {shuffledBlocks.map(blockId => {
                         const block = getBlockData(blockId);
                         if (!block) return null;
                         const order = getSelectionIndex(blockId);

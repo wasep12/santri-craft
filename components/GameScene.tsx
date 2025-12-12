@@ -12,24 +12,35 @@ interface GameSceneProps {
 
 export const GameScene: React.FC<GameSceneProps> = ({ status, title, description, category }) => {
     
-    const isWudu = category === 'fiqh'; 
+    // Logic update: Only show Faucet/Wudu scene if the title explicitly mentions "Wudu"
+    const isWudu = category === 'fiqh' && title.toLowerCase().includes('wudu');
     
-    // Dynamic BG
+    // Dynamic BG Sky Color
     const getBgColor = () => {
         switch(category) {
-            case 'tauhid': return 'bg-blue-300';
+            case 'tauhid': return 'bg-[#87CEEB]'; // Sky Blue
             case 'sejarah': return 'bg-orange-200';
-            default: return 'bg-blue-300'; // Fiqh
+            default: return 'bg-[#87CEEB]'; // Default Minecraft Sky
         }
     };
 
-    const getGroundColor = () => {
-        switch(category) {
-             case 'tauhid': return 'bg-gray-300'; 
-             case 'sejarah': return 'bg-yellow-700'; 
-             default: return 'bg-green-600'; 
-        }
-    };
+    // Render Minecraft Cloud
+    const PixelCloud = ({ size, top, left, delay, opacity }: { size: string, top: string, left: string, delay: string, opacity: string }) => (
+        <div 
+            className={`absolute bg-white ${opacity} animate-cloud select-none`}
+            style={{ 
+                top, 
+                left, 
+                width: size, 
+                height: `calc(${size} / 2)`,
+                animationDelay: delay,
+                boxShadow: '8px 8px 0 rgba(0,0,0,0.1)' 
+            }}
+        >
+            {/* Cloud Details to make it blocky */}
+            <div className="absolute -top-[50%] left-[15%] w-[70%] h-full bg-white"></div>
+        </div>
+    );
 
     return (
         <section className={`
@@ -46,15 +57,31 @@ export const GameScene: React.FC<GameSceneProps> = ({ status, title, description
              <div className={`absolute inset-0 opacity-90 z-0 ${category === 'sejarah' ? 'bg-orange-100' : 'bg-[#87CEEB]'}`}></div>
 
             {/* Scene Container - MADE RESPONSIVE */}
-            <div className="relative z-10 w-full max-w-sm md:max-w-full aspect-square bg-green-500 border-4 border-gray-700 shadow-2xl rounded-xl overflow-hidden group mx-auto">
-                {/* Background Scenery */}
+            <div className="relative z-10 w-full max-w-sm md:max-w-full aspect-square bg-[#87CEEB] border-4 border-gray-700 shadow-2xl rounded-xl overflow-hidden group mx-auto">
+                
+                {/* Minecraft Sky & Clouds */}
                 <div className={`absolute top-0 w-full h-1/2 ${getBgColor()} overflow-hidden`}>
-                     {/* Moving Clouds */}
-                     <div className="absolute top-[10%] left-0 text-white text-6xl opacity-60 animate-cloud select-none">☁️</div>
-                     <div className="absolute top-[30%] left-0 text-white text-4xl opacity-40 animate-cloud-slow select-none" style={{ animationDelay: '5s' }}>☁️</div>
-                     <div className="absolute top-[15%] left-0 text-white text-8xl opacity-30 animate-cloud select-none" style={{ animationDelay: '12s' }}>☁️</div>
+                     <PixelCloud size="120px" top="15%" left="-20%" delay="0s" opacity="opacity-90" />
+                     <PixelCloud size="80px" top="30%" left="-20%" delay="5s" opacity="opacity-70" />
+                     <PixelCloud size="160px" top="10%" left="-20%" delay="12s" opacity="opacity-80" />
                 </div> 
-                <div className={`absolute bottom-0 w-full h-1/2 ${getGroundColor()}`}></div> 
+
+                {/* Minecraft Grass Block Floor */}
+                <div className="absolute bottom-0 w-full h-1/2 bg-[#5d4037] border-t-4 border-[#3e2723]">
+                    {/* Grass Top Layer */}
+                    <div className="absolute top-0 w-full h-[15%] bg-[#4caf50] border-b-4 border-[#2e7d32]"></div>
+                    {/* Random Grass Pixels hanging down */}
+                    <div className="absolute top-[15%] w-full h-[5%] bg-transparent"
+                         style={{
+                             backgroundImage: 'linear-gradient(90deg, #4caf50 50%, transparent 50%)',
+                             backgroundSize: '20px 100%'
+                         }}
+                    ></div>
+                    {/* Dirt Texture */}
+                    <div className="absolute inset-0 opacity-10" 
+                         style={{ backgroundImage: 'radial-gradient(#000 10%, transparent 10%)', backgroundSize: '20px 20px', marginTop: '40px' }}>
+                    </div>
+                </div>
                 
                 {/* Modular Character Component */}
                 <Character 
@@ -66,17 +93,17 @@ export const GameScene: React.FC<GameSceneProps> = ({ status, title, description
                             ? `bottom-[20%] /* Grounded level with Faucet */
                                w-[22%] h-auto aspect-[0.6] 
                                ${status === 'success' ? 'left-[45%]' : 'left-[15%]'}` 
-                            : `/* Non-Wudu: Close Up / Center */
-                               bottom-[5%] left-1/2 transform -translate-x-1/2
+                            : `/* Non-Wudu (Salat/Tauhid): Close Up / Center */
+                               bottom-[20%] left-1/2 transform -translate-x-1/2
                                w-[32%] h-auto aspect-[0.6]` 
                         }
                     `}
                 />
 
-                {/* Faucet Structure (Only for Fiqh/Wudu context) */}
+                {/* Faucet Structure (Only for Wudu specific titles) */}
                 {isWudu && (
                 <div className="absolute bottom-[20%] right-[15%] z-10 w-[15%] h-[40%]">
-                    {/* Vertical Pipe Stand - Anchored to bottom of faucet container */}
+                    {/* Vertical Pipe Stand */}
                     <div className="w-[25%] h-full bg-gray-500 border-2 border-gray-700 absolute bottom-0 right-0"></div>
                     
                     {/* Faucet Head Assembly */}

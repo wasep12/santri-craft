@@ -9,10 +9,10 @@ interface CharacterProps {
 }
 
 export const Character: React.FC<CharacterProps> = ({ status, className, category = 'fiqh' }) => {
-    
+
     // Theme Colors based on Category
     const getThemeColors = () => {
-        switch(category) {
+        switch (category) {
             case 'tauhid':
                 return {
                     sarung: '#1e3a8a', // Blue
@@ -40,7 +40,7 @@ export const Character: React.FC<CharacterProps> = ({ status, className, categor
     const colors = getThemeColors();
 
     return (
-        <div 
+        <div
             className={`
                 origin-bottom
                 transition-all duration-1000 ease-in-out
@@ -65,7 +65,7 @@ export const Character: React.FC<CharacterProps> = ({ status, className, categor
                 {/* Legs/Feet */}
                 <rect x="8" y="36" width="3" height="4" fill="#dcb188" />
                 <rect x="13" y="36" width="3" height="4" fill="#dcb188" />
-                
+
                 {/* Sarung */}
                 <rect x="7" y="24" width="10" height="12" fill={colors.sarung} />
                 <rect x="7" y="26" width="10" height="1" fill={colors.sarungDetail} />
@@ -78,25 +78,38 @@ export const Character: React.FC<CharacterProps> = ({ status, className, categor
                 <rect x="11" y="12" width="2" height="12" fill="#e2e8f0" /> {/* Placket */}
                 <rect x="11.5" y="14" width="1" height="1" fill="#94a3b8" /> {/* Button */}
                 <rect x="11.5" y="17" width="1" height="1" fill="#94a3b8" /> {/* Button */}
-                
+
                 {/* Arms */}
-                <rect x="4" y="12" width="2" height="9" fill={colors.baju} />
-                <rect x="4" y="21" width="2" height="3" fill="#dcb188" />
-                
-                <rect x="18" y="12" width="2" height="9" fill={colors.baju} />
-                <rect x="18" y="21" width="2" height="3" fill="#dcb188" />
+                {status === 'success' ? (
+                    <>
+                        {/* Raised arms - hands up to celebrate (moved slightly closer to torso) */}
+                        <rect x="5" y="0" width="2" height="8" fill={colors.baju} />
+                        <rect x="5" y="8" width="2" height="3" fill="#dcb188" />
+
+                        <rect x="17" y="0" width="2" height="8" fill={colors.baju} />
+                        <rect x="17" y="8" width="2" height="3" fill="#dcb188" />
+                    </>
+                ) : (
+                    <>
+                        <rect x="4" y="12" width="2" height="9" fill={colors.baju} />
+                        <rect x="4" y="21" width="2" height="3" fill="#dcb188" />
+
+                        <rect x="18" y="12" width="2" height="9" fill={colors.baju} />
+                        <rect x="18" y="21" width="2" height="3" fill="#dcb188" />
+                    </>
+                )}
 
                 {/* Head/Neck */}
                 <rect x="10" y="10" width="4" height="2" fill="#dcb188" />
                 <rect x="8" y="4" width="8" height="7" fill="#dcb188" />
-                
+
                 {/* Eyes */}
                 {status === 'idle' || status === 'error' ? (
                     // Confused Eyes
-                     <>
+                    <>
                         <rect x="9" y="5" width="1" height="2" fill="#000" />
                         <rect x="13" y="6" width="1" height="1" fill="#000" />
-                     </>
+                    </>
                 ) : (
                     // Normal/Happy Eyes
                     <>
@@ -104,14 +117,14 @@ export const Character: React.FC<CharacterProps> = ({ status, className, categor
                         <rect x="13" y="6" width="1" height="1" fill="#000" />
                     </>
                 )}
-                
+
                 {/* Mouth */}
                 {status === 'success' ? (
-                     // Smile
-                     <rect x="10" y="9" width="4" height="1" fill="#d23e3e" /> 
+                    // Smile
+                    <rect x="10" y="9" width="4" height="1" fill="#d23e3e" />
                 ) : (
                     // Confused/Flat Mouth
-                    <rect x="11" y="9" width="2" height="1" fill="#333" /> 
+                    <rect x="11" y="9" width="2" height="1" fill="#333" />
                 )}
 
                 {/* Peci */}

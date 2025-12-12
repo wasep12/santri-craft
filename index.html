@@ -31,7 +31,38 @@
     <style>
         body { font-family: 'VT323', monospace; }
         
-        /* Custom Shake Animation */
+        /* --- MINECRAFT STYLE SCROLLBAR --- */
+        /* Width */
+        ::-webkit-scrollbar {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Track (Background) - Dark Stone Color */
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e; 
+            border-left: 2px solid #000;
+        }
+
+        /* Handle (Thumb) - Stone Block Style */
+        ::-webkit-scrollbar-thumb {
+            background: #7f7f7f; /* Base gray */
+            border: 2px solid #000; /* Black outline */
+            box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.3), /* Highlight top-left */
+                        inset -2px -2px 0px rgba(0, 0, 0, 0.3); /* Shadow bottom-right */
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a0a0a0;
+        }
+
+        /* Corner */
+        ::-webkit-scrollbar-corner {
+            background: #1e1e1e;
+        }
+
+        /* --- ANIMATIONS --- */
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
@@ -62,9 +93,7 @@
             animation: move-cloud 35s linear infinite;
         }
 
-        /* Ground/Grass Movement Animation 
-           Updated to 80px to match the LCM of background sizes for smooth looping 
-        */
+        /* Ground/Grass Movement Animation */
         @keyframes move-ground {
             from { background-position-x: 0px; }
             to { background-position-x: 80px; }

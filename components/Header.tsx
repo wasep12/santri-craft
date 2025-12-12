@@ -5,10 +5,20 @@ interface HeaderProps {
     categoryLabel?: string;
     isMuted: boolean;
     onToggleMute: () => void;
-    onHome: () => void; 
+    onHome: () => void;
+    onShowInfo: () => void;
+    onShowHelp: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ level, categoryLabel, isMuted, onToggleMute, onHome }) => {
+export const Header: React.FC<HeaderProps> = ({ 
+    level, 
+    categoryLabel, 
+    isMuted, 
+    onToggleMute, 
+    onHome,
+    onShowInfo,
+    onShowHelp
+}) => {
     
     return (
         <header className="sticky top-0 w-full bg-green-600 p-2 md:p-3 border-b-4 border-green-800 text-white flex justify-between items-center shadow-lg z-50 shrink-0 h-[60px] md:h-auto transition-all">
@@ -29,12 +39,34 @@ export const Header: React.FC<HeaderProps> = ({ level, categoryLabel, isMuted, o
                 </div>
             </div>
             
-            <div className="flex items-center gap-2 md:gap-4">
-                {/* Mute Button - Transparent, No Box, Material Icon */}
+            <div className="flex items-center gap-1 md:gap-3">
+                
+                {/* Info Button */}
+                <button 
+                    onClick={onShowInfo}
+                    className="p-1 md:p-2 rounded hover:bg-green-700 active:translate-y-1 transition-all text-green-100 hover:text-white"
+                    title="Tentang Game"
+                >
+                    <span className="material-icons">info</span>
+                </button>
+
+                {/* Help Button */}
+                <button 
+                    onClick={onShowHelp}
+                    className="p-1 md:p-2 rounded hover:bg-green-700 active:translate-y-1 transition-all text-green-100 hover:text-white"
+                    title="Panduan Bermain"
+                >
+                    <span className="material-icons">help_outline</span>
+                </button>
+
+                {/* Separator */}
+                <div className="w-px h-6 bg-green-800/50 mx-1"></div>
+
+                {/* Mute Button */}
                 <button 
                     onClick={onToggleMute}
                     className={`
-                        p-2 rounded-full flex items-center justify-center transition-all active:scale-90
+                        p-1 md:p-2 rounded-full flex items-center justify-center transition-all active:scale-90
                         ${isMuted ? 'text-red-300 hover:text-red-100' : 'text-white hover:text-yellow-300'}
                     `}
                     title={isMuted ? "Unmute Musik" : "Mute Musik"}
@@ -45,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({ level, categoryLabel, isMuted, o
                 </button>
 
                 {categoryLabel && (
-                    <div className="bg-black/30 px-2 md:px-4 py-1 rounded text-sm md:text-xl border border-white/20 whitespace-nowrap">
+                    <div className="hidden md:block bg-black/30 px-2 md:px-4 py-1 rounded text-sm md:text-xl border border-white/20 whitespace-nowrap ml-2">
                         Lvl <span className="text-yellow-300 font-bold">{level}</span>
                     </div>
                 )}

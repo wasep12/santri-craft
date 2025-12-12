@@ -63,8 +63,8 @@ export const MainMenu: React.FC<MainMenuProps> = ({ onSelectCategory }) => {
     return (
         <div className="flex-1 flex flex-col items-center justify-start relative h-full w-full overflow-hidden">
             
-            {/* Scrollable Content Container - Grass is INSIDE flow now, at the bottom */}
-            <div className="flex-1 w-full overflow-y-auto flex flex-col items-center text-center no-scrollbar bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900 to-gray-900 relative">
+            {/* Scrollable Content Container - Custom Scrollbar enabled here */}
+            <div className="flex-1 w-full overflow-y-auto flex flex-col items-center text-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900 to-gray-900 relative">
                 
                 {/* Background Floating Pixel Boxes */}
                 {decos.map((d, i) => (

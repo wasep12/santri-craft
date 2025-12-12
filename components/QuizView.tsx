@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { playSound } from '../utils/audio';
 import { QUIZ_BANK, QuizQuestion } from '../data/quizData';
 
-export const QuizView: React.FC = () => {
+interface QuizViewProps {
+    onBack?: () => void;
+}
+
+export const QuizView: React.FC<QuizViewProps> = ({ onBack }) => {
     const [questions, setQuestions] = useState<QuizQuestion[]>([]);
     const [currentIdx, setCurrentIdx] = useState(0);
     const [score, setScore] = useState(0);
@@ -19,7 +23,7 @@ export const QuizView: React.FC = () => {
         // Shuffle the bank and take top 5
         const shuffled = [...QUIZ_BANK].sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, 5);
-        
+
         setQuestions(selected);
         setCurrentIdx(0);
         setScore(0);
@@ -69,9 +73,15 @@ export const QuizView: React.FC = () => {
                     <p className={`text-6xl font-bold mb-8 ${score >= 80 ? 'text-green-400' : 'text-orange-400'}`}>
                         {score}
                     </p>
-                    <button onClick={() => { playSound('click'); startNewQuiz(); }} className="w-full bg-blue-500 hover:bg-blue-600 text-white border-b-4 border-blue-800 py-3 rounded font-bold text-xl btn-voxel">
-                        MAIN LAGI (SOAL BARU)
-                    </button>
+                    <div className="space-y-3">
+                        <button onClick={() => { playSound('click'); startNewQuiz(); }} className="w-full bg-blue-500 hover:bg-blue-600 text-white border-b-4 border-blue-800 py-3 rounded font-bold text-xl btn-voxel">
+                            MAIN LAGI (SOAL BARU)
+                        </button>
+
+                        <button onClick={() => { playSound('click'); onBack ? onBack() : window.history.back(); }} className="w-full bg-gray-700 hover:bg-gray-600 text-white border-b-4 border-gray-900 py-3 rounded font-bold text-lg btn-voxel">
+                            KEMBALI
+                        </button>
+                    </div>
                 </div>
             </div>
         );
@@ -81,7 +91,7 @@ export const QuizView: React.FC = () => {
 
     return (
         <div className="w-full flex-1 flex flex-col items-center p-4 md:p-8 overflow-y-auto">
-            
+
             {/* Header / Score */}
             <div className="w-full max-w-2xl flex justify-between items-center mb-6 bg-black/40 p-3 rounded border border-white/20 text-white">
                 <span className="text-yellow-300 font-bold text-xl">SOAL {currentIdx + 1}/{questions.length}</span>

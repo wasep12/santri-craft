@@ -1,149 +1,201 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- SEO Meta Tags -->
     <title>SantriCraft: Logic Quest - Game Edukasi Islam & Coding Anak</title>
-    <meta name="description" content="SantriCraft adalah game edukasi interaktif untuk anak muslim. Belajar algoritma Wudu, Salat, dan Sejarah Islam dengan gaya visual Pixel Art yang seru.">
-    <meta name="keywords" content="Game Edukasi Islam, Belajar Wudu, Belajar Salat, Coding Anak, Pixel Art Game, SantriCraft, Computational Thinking, Pendidikan Agama Islam">
-    <meta name="author" content="SantriCraft Developer">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#16a34a">
+    <meta
+      name="description"
+      content="SantriCraft adalah game edukasi interaktif untuk anak muslim. Belajar algoritma Wudu, Salat, dan Sejarah Islam dengan gaya visual Pixel Art yang seru."
+    />
+    <meta
+      name="keywords"
+      content="Game Edukasi Islam, Belajar Wudu, Belajar Salat, Coding Anak, Pixel Art Game, SantriCraft, Computational Thinking, Pendidikan Agama Islam"
+    />
+    <meta name="author" content="SantriCraft Developer" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#16a34a" />
 
     <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://santricraft.vercel.app/">
-    <meta property="og:title" content="SantriCraft: Logic Quest">
-    <meta property="og:description" content="Mainkan petualangan logika Islam! Susun blok algoritma untuk Wudu, Salat, dan Sejarah Nabi.">
-    <meta property="og:image" content="https://placehold.co/1200x630/16a34a/ffffff?text=SantriCraft+Logic+Quest">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="%VITE_APP_URL%/" />
+    <meta property="og:title" content="SantriCraft: Logic Quest" />
+    <meta
+      property="og:description"
+      content="Mainkan petualangan logika Islam! Susun blok algoritma untuk Wudu, Salat, dan Sejarah Nabi."
+    />
+    <meta property="og:image" content="%VITE_APP_URL%/favicon-32x32.png" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="SantriCraft: Logic Quest">
-    <meta property="twitter:description" content="Belajar Islam jadi lebih seru dengan logika pemrograman block-based.">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="SantriCraft: Logic Quest" />
+    <meta
+      property="twitter:description"
+      content="Belajar Islam jadi lebih seru dengan logika pemrograman block-based."
+    />
+    <meta property="twitter:image" content="%VITE_APP_URL%/favicon-32x32.png" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Favicon / PWA (use images from public/) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#16a34a" />
+    <link rel="canonical" href="%VITE_APP_URL%/" />
     <!-- Google Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <style>
-        body { font-family: 'VT323', monospace; }
-        
-        /* --- MINECRAFT STYLE SCROLLBAR --- */
-        /* Width */
-        ::-webkit-scrollbar {
-            width: 16px;
-            height: 16px;
-        }
+      body {
+        font-family: "VT323", monospace;
+      }
 
-        /* Track (Background) - Dark Stone Color */
-        ::-webkit-scrollbar-track {
-            background: #1e1e1e; 
-            border-left: 2px solid #000;
-        }
+      /* --- MINECRAFT STYLE SCROLLBAR --- */
+      /* Width */
+      ::-webkit-scrollbar {
+        width: 16px;
+        height: 16px;
+      }
 
-        /* Handle (Thumb) - Stone Block Style */
-        ::-webkit-scrollbar-thumb {
-            background: #7f7f7f; /* Base gray */
-            border: 2px solid #000; /* Black outline */
-            box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.3), /* Highlight top-left */
-                        inset -2px -2px 0px rgba(0, 0, 0, 0.3); /* Shadow bottom-right */
-        }
+      /* Track (Background) - Dark Stone Color */
+      ::-webkit-scrollbar-track {
+        background: #1e1e1e;
+        border-left: 2px solid #000;
+      }
 
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a0a0a0;
-        }
+      /* Handle (Thumb) - Stone Block Style */
+      ::-webkit-scrollbar-thumb {
+        background: #7f7f7f; /* Base gray */
+        border: 2px solid #000; /* Black outline */
+        box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.3),
+          /* Highlight top-left */ inset -2px -2px 0px rgba(0, 0, 0, 0.3); /* Shadow bottom-right */
+      }
 
-        /* Corner */
-        ::-webkit-scrollbar-corner {
-            background: #1e1e1e;
-        }
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a0a0a0;
+      }
 
-        /* --- ANIMATIONS --- */
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-        .animate-shake {
-            animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
-        }
+      /* Corner */
+      ::-webkit-scrollbar-corner {
+        background: #1e1e1e;
+      }
 
-        /* Custom Jump Animation */
-        @keyframes jump-happy {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+      /* --- ANIMATIONS --- */
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
         }
-        .animate-jump-happy {
-            animation: jump-happy 0.5s ease-out;
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          transform: translateX(-5px);
         }
+        20%,
+        40%,
+        60%,
+        80% {
+          transform: translateX(5px);
+        }
+      }
+      .animate-shake {
+        animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      }
 
-        /* Cloud Animation */
-        @keyframes move-cloud {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(400%); }
+      /* Custom Jump Animation */
+      @keyframes jump-happy {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
         }
-        .animate-cloud {
-            animation: move-cloud 20s linear infinite;
+        50% {
+          transform: translateY(-20px) rotate(10deg);
         }
-        .animate-cloud-slow {
-            animation: move-cloud 35s linear infinite;
-        }
+      }
+      .animate-jump-happy {
+        animation: jump-happy 0.5s ease-out;
+      }
 
-        /* Ground/Grass Movement Animation */
-        @keyframes move-ground {
-            from { background-position-x: 0px; }
-            to { background-position-x: 80px; }
+      /* Cloud Animation */
+      @keyframes move-cloud {
+        from {
+          transform: translateX(-100%);
         }
+        to {
+          transform: translateX(400%);
+        }
+      }
+      .animate-cloud {
+        animation: move-cloud 20s linear infinite;
+      }
+      .animate-cloud-slow {
+        animation: move-cloud 35s linear infinite;
+      }
 
-        /* Floating Icon Animation */
-        @keyframes float-icon {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+      /* Ground/Grass Movement Animation */
+      @keyframes move-ground {
+        from {
+          background-position-x: 0px;
         }
-        .animate-float {
-            animation: float-icon 2s ease-in-out infinite;
+        to {
+          background-position-x: 80px;
         }
+      }
 
-        /* Text Shadow */
-        .text-shadow {
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+      /* Floating Icon Animation */
+      @keyframes float-icon {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+      .animate-float {
+        animation: float-icon 2s ease-in-out infinite;
+      }
 
-        /* Voxel Button Effects */
-        .btn-voxel {
-            box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.4);
-            transition: all 0.1s;
-        }
-        .btn-voxel:active {
-            transform: translateY(4px);
-            box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.4);
-        }
-        
-        /* Material Icons Tweaks for Pixel Art Vibe */
+      /* Text Shadow */
+      .text-shadow {
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Voxel Button Effects */
+      .btn-voxel {
+        box-shadow: 0px 4px 0px 0px rgba(0, 0, 0, 0.4);
+        transition: all 0.1s;
+      }
+      .btn-voxel:active {
+        transform: translateY(4px);
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Material Icons Tweaks for Pixel Art Vibe */
+      .material-icons {
+        font-size: 28px; /* Default size */
+      }
+      @media (min-width: 768px) {
         .material-icons {
-            font-size: 28px; /* Default size */
+          font-size: 36px;
         }
-        @media (min-width: 768px) {
-            .material-icons {
-                font-size: 36px;
-            }
-        }
+      }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
-</head>
-<body class="bg-blue-200 h-screen overflow-hidden">
+  </head>
+  <body class="bg-blue-200 h-screen overflow-hidden">
     <div id="root"></div>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>

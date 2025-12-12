@@ -72,7 +72,7 @@ export const Workspace: React.FC<WorkspaceProps> = ({
                 </div>
 
                 {/* Grid Responsif: 2 kolom di mobile, mungkin 3 di tablet besar jika perlu */}
-                <div className="mt-6 md:mt-8 grid grid-cols-2 gap-2 md:gap-3 pb-20 md:pb-4">
+                <div className="mt-6 md:mt-8 grid grid-cols-2 gap-2 md:gap-3 pb-32 md:pb-4">
                     {shuffledBlocks.map(blockId => {
                         const block = getBlockData(blockId);
                         if (!block) return null;

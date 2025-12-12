@@ -82,7 +82,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ onSelectCategory }) => {
                 ))}
 
                 {/* Main Content Wrapper - flex-1 pushes footer down */}
-                <div className="w-full max-w-[95%] px-0 md:px-12 pt-10 md:pt-16 pb-24 md:pb-12 flex flex-col items-center z-10 flex-1">
+                <div className="w-full max-w-[95%] px-0 md:px-12 pt-10 md:pt-16 pb-32 md:pb-12 flex flex-col items-center z-10 flex-1">
 
                     {/* HERO SECTION */}
                     <div className="mb-8 md:mb-12 relative shrink-0 mt-4 md:mt-8">
@@ -120,7 +120,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ onSelectCategory }) => {
                         </div>
                     )}
 
-                    <footer className="mt-auto pt-12 text-white/60 text-xs md:text-sm flex flex-col items-center gap-1 shrink-0 mb-8">
+                    <footer className="mt-auto pt-12 text-white/60 text-xs md:text-sm flex flex-col items-center gap-1 shrink-0 mb-24 md:mb-8">
                         <p className="text-shadow-sm text-lg">Versi 1.0 (Beta) - SantriCraft Logic Quest</p>
                         <div className="bg-black/50 px-6 py-3 rounded mt-2 border border-white/20 max-w-[90%] break-words backdrop-blur-md shadow-lg">
                             <p className="font-bold text-yellow-400 text-base">Developer by :</p>

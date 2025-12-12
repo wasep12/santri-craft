@@ -1,0 +1,128 @@
+export interface QuizQuestion {
+    q: string;
+    options: string[];
+    ans: number; // Index of the correct answer (0-3)
+}
+
+export const QUIZ_BANK: QuizQuestion[] = [
+    // --- RUKUN ISLAM & IMAN ---
+    { q: "Ada berapa Rukun Islam?", options: ["3", "4", "5", "6"], ans: 2 },
+    { q: "Ada berapa Rukun Iman?", options: ["5", "6", "7", "8"], ans: 1 },
+    { q: "Rukun Islam yang pertama adalah...", options: ["Salat", "Zakat", "Syahadat", "Puasa"], ans: 2 },
+    { q: "Beriman kepada Malaikat adalah rukun iman ke-...", options: ["1", "2", "3", "4"], ans: 1 },
+    { q: "Kitab suci umat Islam adalah...", options: ["Injil", "Taurat", "Zabur", "Al-Qur'an"], ans: 3 },
+    { q: "Nabi terakhir yang diutus Allah adalah...", options: ["Nabi Isa AS", "Nabi Musa AS", "Nabi Ibrahim AS", "Nabi Muhammad SAW"], ans: 3 },
+    { q: "Puasa Ramadan termasuk rukun Islam ke-...", options: ["2", "3", "4", "5"], ans: 2 },
+    { q: "Ibadah Haji wajib dilakukan bagi yang...", options: ["Mau", "Mampu", "Sehat", "Pintar"], ans: 1 },
+    { q: "Malaikat yang bertugas menyampaikan wahyu adalah...", options: ["Jibril", "Mikail", "Israfil", "Izrail"], ans: 0 },
+    { q: "Malaikat yang bertugas membagi rezeki adalah...", options: ["Jibril", "Mikail", "Rakib", "Atid"], ans: 1 },
+
+    // --- SALAT & WUDU ---
+    { q: "Salat yang dikerjakan pada waktu fajar adalah...", options: ["Subuh", "Zuhur", "Asar", "Maghrib"], ans: 0 },
+    { q: "Jumlah rakaat salat Isya adalah...", options: ["2", "3", "4", "5"], ans: 2 },
+    { q: "Jumlah rakaat salat Maghrib adalah...", options: ["2", "3", "4", "5"], ans: 1 },
+    { q: "Gerakan membungkuk dengan tangan di lutut disebut...", options: ["Sujud", "Rukuk", "I'tidal", "Duduk"], ans: 1 },
+    { q: "Gerakan menempelkan dahi ke lantai disebut...", options: ["Rukuk", "Sujud", "Takbir", "Salam"], ans: 1 },
+    { q: "Sebelum salat kita wajib melakukan...", options: ["Makan", "Minum", "Wudu", "Tidur"], ans: 2 },
+    { q: "Jika tidak ada air, kita boleh bersuci dengan...", options: ["Mandi", "Tayammum", "Wudu", "Cuci tangan"], ans: 1 },
+    { q: "Tayammum menggunakan...", options: ["Air", "Debu suci", "Batu", "Kayu"], ans: 1 },
+    { q: "Arah kiblat umat Islam adalah ke...", options: ["Masjid Nabawi", "Ka'bah", "Baitul Maqdis", "Gunung Uhud"], ans: 1 },
+    { q: "Bacaan 'Allahu Akbar' disebut...", options: ["Tahmid", "Tasbih", "Takbir", "Tahlil"], ans: 2 },
+    { q: "Surah yang wajib dibaca setiap rakaat salat adalah...", options: ["An-Nas", "Al-Ikhlas", "Al-Fatihah", "Al-Falaq"], ans: 2 },
+    { q: "Salat sunah yang dilakukan di bulan Ramadan setelah Isya disebut...", options: ["Duha", "Tahajud", "Tarawih", "Witir"], ans: 2 },
+    { q: "Hari raya umat Islam setelah puasa Ramadan adalah...", options: ["Idul Adha", "Idul Fitri", "Tahun Baru", "Maulid"], ans: 1 },
+    { q: "Salat Jumat dilaksanakan pada waktu...", options: ["Pagi", "Zuhur", "Asar", "Malam"], ans: 1 },
+    { q: "Orang yang mengumandangkan adzan disebut...", options: ["Imam", "Makmum", "Muadzin", "Khatib"], ans: 2 },
+
+    // --- SEJARAH NABI ---
+    { q: "Siapakah Nabi manusia pertama?", options: ["Nabi Nuh", "Nabi Adam", "Nabi Idris", "Nabi Ibrahim"], ans: 1 },
+    { q: "Nabi yang bisa berbicara dengan hewan adalah...", options: ["Nabi Sulaiman", "Nabi Daud", "Nabi Musa", "Nabi Yusuf"], ans: 0 },
+    { q: "Nabi yang membelah lautan dengan tongkat adalah...", options: ["Nabi Isa", "Nabi Musa", "Nabi Ibrahim", "Nabi Nuh"], ans: 1 },
+    { q: "Nabi yang membuat kapal besar adalah...", options: ["Nabi Adam", "Nabi Nuh", "Nabi Hud", "Nabi Luth"], ans: 1 },
+    { q: "Nabi yang dibakar api namun tidak hangus adalah...", options: ["Nabi Ibrahim", "Nabi Ismail", "Nabi Isa", "Nabi Yusuf"], ans: 0 },
+    { q: "Siapakah ayah Nabi Muhammad SAW?", options: ["Abdul Muthalib", "Abu Thalib", "Abdullah", "Abu Lahab"], ans: 2 },
+    { q: "Siapakah ibu Nabi Muhammad SAW?", options: ["Aminah", "Halimah", "Khadijah", "Aisyah"], ans: 0 },
+    { q: "Nabi Muhammad SAW lahir di kota...", options: ["Madinah", "Makkah", "Taif", "Yaman"], ans: 1 },
+    { q: "Tahun kelahiran Nabi Muhammad disebut Tahun...", options: ["Kuda", "Unta", "Gajah", "Singa"], ans: 2 },
+    { q: "Istri pertama Nabi Muhammad SAW adalah...", options: ["Aisyah", "Hafsah", "Khadijah", "Zainab"], ans: 2 },
+    { q: "Putri Nabi Muhammad SAW yang menikah dengan Ali bin Abi Thalib adalah...", options: ["Ruqayyah", "Zainab", "Fatimah", "Ummu Kultsum"], ans: 2 },
+    { q: "Sahabat Nabi yang menjadi Khalifah pertama adalah...", options: ["Umar bin Khattab", "Abu Bakar Ash-Shiddiq", "Utsman bin Affan", "Ali bin Abi Thalib"], ans: 1 },
+    { q: "Gelar Nabi Muhammad karena kejujurannya adalah...", options: ["Al-Amin", "Al-Faruq", "As-Siddiq", "Zunnurain"], ans: 0 },
+    { q: "Wahyu pertama turun di gua...", options: ["Tsur", "Hira", "Uhud", "Rahmah"], ans: 1 },
+    { q: "Perjalanan Nabi dari Masjidil Haram ke Masjidil Aqsa disebut...", options: ["Isra", "Mi'raj", "Hijrah", "Dakwah"], ans: 0 },
+    { q: "Perpindahan Nabi dari Makkah ke Madinah disebut...", options: ["Isra", "Mi'raj", "Hijrah", "Jihad"], ans: 2 },
+    { q: "Kaum yang menolong Nabi di Madinah disebut kaum...", options: ["Muhajirin", "Anshar", "Quraisy", "Badui"], ans: 1 },
+    { q: "Kaum yang ikut pindah dari Makkah ke Madinah disebut kaum...", options: ["Muhajirin", "Anshar", "Yahudi", "Nasrani"], ans: 0 },
+    { q: "Perang besar pertama dalam Islam adalah perang...", options: ["Uhud", "Khandaq", "Badar", "Tabuk"], ans: 2 },
+    { q: "Nabi Yusuf AS terkenal dengan...", options: ["Kekayaannya", "Ketampanannya", "Kekuatannya", "Kesabarannya"], ans: 1 },
+
+    // --- AL-QURAN & HADITS ---
+    { q: "Surah pertama dalam Al-Qur'an adalah...", options: ["Al-Baqarah", "An-Nas", "Al-Fatihah", "Yasin"], ans: 2 },
+    { q: "Surah terakhir dalam Al-Qur'an adalah...", options: ["Al-Falaq", "An-Nas", "Al-Ikhlas", "Al-Lahab"], ans: 1 },
+    { q: "Wahyu pertama yang turun adalah surah...", options: ["Al-Muddassir", "Al-Alaq", "Al-Fatihah", "Ar-Rahman"], ans: 1 },
+    { q: "Surah terpanjang dalam Al-Qur'an adalah...", options: ["Ali Imran", "An-Nisa", "Al-Baqarah", "Al-Maidah"], ans: 2 },
+    { q: "Surah terpendek dalam Al-Qur'an adalah...", options: ["Al-Ikhlas", "Al-Kautsar", "An-Nasr", "Al-Asr"], ans: 1 },
+    { q: "Al-Qur'an terdiri dari berapa juz?", options: ["20", "25", "30", "35"], ans: 2 },
+    { q: "Tanda baca dalam Al-Qur'an disebut...", options: ["Harakah", "Tajwid", "Huruf", "Ayat"], ans: 0 },
+    { q: "Hukum membaca Al-Qur'an dengan baik dan benar disebut ilmu...", options: ["Fiqh", "Tauhid", "Tajwid", "Nahwu"], ans: 2 },
+    { q: "Perkataan, perbuatan, dan ketetapan Nabi disebut...", options: ["Al-Qur'an", "Hadits", "Ijtihad", "Qiyas"], ans: 1 },
+    { q: "Ayat Kursi terdapat dalam surah...", options: ["Al-Baqarah", "Ali Imran", "Yasin", "Al-Mulk"], ans: 0 },
+
+    // --- SIFAT ALLAH & ASMAUL HUSNA ---
+    { q: "Arti Ar-Rahman adalah...", options: ["Maha Penyayang", "Maha Pengasih", "Maha Raja", "Maha Suci"], ans: 1 },
+    { q: "Arti Ar-Rahim adalah...", options: ["Maha Pengasih", "Maha Penyayang", "Maha Kuasa", "Maha Adil"], ans: 1 },
+    { q: "Arti Al-Malik adalah...", options: ["Maha Merajai", "Maha Memberi", "Maha Mengetahui", "Maha Melihat"], ans: 0 },
+    { q: "Allah Maha Esa, artinya Allah itu...", options: ["Dua", "Tiga", "Satu", "Banyak"], ans: 2 },
+    { q: "Sifat Wajib Allah 'Wujud' artinya...", options: ["Ada", "Terdahulu", "Kekal", "Berbeda"], ans: 0 },
+    { q: "Sifat Wajib Allah 'Qidam' artinya...", options: ["Ada", "Terdahulu", "Kekal", "Berdiri Sendiri"], ans: 1 },
+    { q: "Sifat Wajib Allah 'Baqa' artinya...", options: ["Fana", "Rusak", "Kekal", "Baru"], ans: 2 },
+    { q: "Allah Maha Mendengar, disebut...", options: ["Al-Basir", "As-Sami", "Al-Alim", "Al-Khabir"], ans: 1 },
+    { q: "Allah Maha Melihat, disebut...", options: ["As-Sami", "Al-Basir", "Al-Hakam", "Al-Adl"], ans: 1 },
+    { q: "Pencipta alam semesta disebut...", options: ["Khalik", "Makhluk", "Malaikat", "Rasul"], ans: 0 },
+
+    // --- AKHLAK & ADAB ---
+    { q: "Ucapan terima kasih kepada sesama muslim adalah...", options: ["Syukron", "Afwan", "Naam", "Laa"], ans: 0 },
+    { q: "Jawaban dari Jazakallah Khairan adalah...", options: ["Wa iyyaka", "Sama-sama", "Oke", "Baik"], ans: 0 },
+    { q: "Masuk kamar mandi mendahulukan kaki...", options: ["Kanan", "Kiri", "Kedua kaki", "Bebas"], ans: 1 },
+    { q: "Masuk masjid mendahulukan kaki...", options: ["Kanan", "Kiri", "Kedua kaki", "Bebas"], ans: 0 },
+    { q: "Berbakti kepada orang tua disebut...", options: ["Birrul Walidain", "Uququl Walidain", "Silaturahmi", "Ukhuwah"], ans: 0 },
+    { q: "Durhaka kepada orang tua disebut...", options: ["Birrul Walidain", "Uququl Walidain", "Husnuzan", "Suudzan"], ans: 1 },
+    { q: "Kebersihan adalah sebagian dari...", options: ["Sehat", "Iman", "Kaya", "Pintar"], ans: 1 },
+    { q: "Senyum kepada saudara adalah...", options: ["Riba", "Dosa", "Sedekah", "Mubazir"], ans: 2 },
+    { q: "Makan dan minum sebaiknya menggunakan tangan...", options: ["Kiri", "Kanan", "Dua tangan", "Sendok saja"], ans: 1 },
+    { q: "Sebelum makan kita harus...", options: ["Tidur", "Berdoa", "Lari", "Main"], ans: 1 },
+
+    // --- FIQH UMUM & PUASA ---
+    { q: "Makan sahur hukumnya...", options: ["Wajib", "Sunah", "Makruh", "Haram"], ans: 1 },
+    { q: "Berbuka puasa sebaiknya dengan yang...", options: ["Pahit", "Asin", "Manis", "Pedas"], ans: 2 },
+    { q: "Zakat yang dikeluarkan saat Ramadan disebut...", options: ["Zakat Mal", "Zakat Fitrah", "Sedekah", "Infaq"], ans: 1 },
+    { q: "Orang yang berhak menerima zakat disebut...", options: ["Muzakki", "Mustahik", "Amil", "Mualaf"], ans: 1 },
+    { q: "Hari raya kurban jatuh pada bulan...", options: ["Ramadan", "Syawal", "Zulhijjah", "Muharam"], ans: 2 },
+    { q: "Hewan yang boleh dikurban adalah, kecuali...", options: ["Sapi", "Kambing", "Unta", "Ayam"], ans: 3 },
+    { q: "Haji dilaksanakan di kota...", options: ["Madinah", "Makkah", "Jeddah", "Riyadh"], ans: 1 },
+    { q: "Pakaian khusus saat haji disebut pakaian...", options: ["Ihram", "Gamis", "Jubah", "Koko"], ans: 0 },
+    { q: "Mengelilingi Ka'bah sebanyak 7 kali disebut...", options: ["Sai", "Tawaf", "Wukuf", "Tahallul"], ans: 1 },
+    { q: "Berlari-lari kecil antara bukit Safa dan Marwah disebut...", options: ["Tawaf", "Sai", "Jumrah", "Wukuf"], ans: 1 },
+
+    // --- LAIN-LAIN ---
+    { q: "Nama bulan pertama dalam kalender Hijriah adalah...", options: ["Safar", "Muharam", "Rajab", "Ramadan"], ans: 1 },
+    { q: "Assalamu'alaikum artinya semoga keselamatan tercurah...", options: ["Untukmu", "Untukku", "Untuk kita", "Untuk semua"], ans: 0 },
+    { q: "Air yang suci dan menyucikan disebut air...", options: ["Mutanajis", "Mutlak", "Musta'mal", "Musyammas"], ans: 1 },
+    { q: "Najis dari air liur anjing termasuk najis...", options: ["Mukhaffafah", "Mutawasitah", "Mughallazah", "Ma'fu"], ans: 2 },
+    { q: "Najis ringan seperti air kencing bayi laki-laki disebut...", options: ["Mukhaffafah", "Mutawasitah", "Mughallazah", "Berat"], ans: 0 },
+    { q: "Surga di telapak kaki...", options: ["Ayah", "Ibu", "Kakek", "Nenek"], ans: 1 },
+    { q: "Menuntut ilmu hukumnya...", options: ["Sunah", "Wajib", "Mubah", "Makruh"], ans: 1 },
+    { q: "Setan diciptakan dari...", options: ["Tanah", "Cahaya", "Api", "Air"], ans: 2 },
+    { q: "Manusia diciptakan dari...", options: ["Tanah", "Cahaya", "Api", "Angin"], ans: 0 },
+    { q: "Malaikat diciptakan dari...", options: ["Tanah", "Cahaya", "Api", "Lumpur"], ans: 1 },
+    { q: "Istri Nabi Adam bernama...", options: ["Hawa", "Sarah", "Hajar", "Maryam"], ans: 0 },
+    { q: "Nabi yang ditelan ikan paus adalah...", options: ["Nabi Yunus", "Nabi Yusuf", "Nabi Yahya", "Nabi Yaqub"], ans: 0 },
+    { q: "Raja yang melawan Nabi Ibrahim adalah...", options: ["Firaun", "Namrud", "Abrahah", "Jalut"], ans: 1 },
+    { q: "Raja yang melawan Nabi Musa adalah...", options: ["Firaun", "Namrud", "Abrahah", "Qarun"], ans: 0 },
+    { q: "Masjid pertama yang dibangun Nabi Muhammad adalah...", options: ["Masjidil Haram", "Masjid Nabawi", "Masjid Quba", "Masjid Aqsa"], ans: 2 },
+    { q: "Kota tempat Ka'bah berada adalah...", options: ["Madinah", "Makkah", "Palestina", "Mesir"], ans: 1 },
+    { q: "Kalimat Tauhid adalah...", options: ["Alhamdulillah", "Allahu Akbar", "La ilaha illallah", "Subhanallah"], ans: 2 },
+    { q: "Sujud sahwi dilakukan karena...", options: ["Lupa rakaat", "Sengaja", "Mengantuk", "Capek"], ans: 0 },
+    { q: "Mempercayai ramalan nasib hukumnya...", options: ["Boleh", "Sunah", "Haram/Syirik", "Wajib"], ans: 2 },
+    { q: "Allah tidak mempunyai anak dan tidak...", options: ["Dilahirkan", "Diciptakan", "Dibuat", "Dilihat"], ans: 0 }
+];

@@ -5,13 +5,19 @@ interface HeaderProps {
     categoryLabel?: string;
     isMuted: boolean;
     onToggleMute: () => void;
-    onHome: () => void; // Kept for interface compatibility but unused in UI
+    onHome: () => void; 
 }
 
-export const Header: React.FC<HeaderProps> = ({ level, categoryLabel, isMuted, onToggleMute }) => {
+export const Header: React.FC<HeaderProps> = ({ level, categoryLabel, isMuted, onToggleMute, onHome }) => {
+    
     return (
         <header className="sticky top-0 w-full bg-green-600 p-2 md:p-3 border-b-4 border-green-800 text-white flex justify-between items-center shadow-lg z-50 shrink-0 h-[60px] md:h-auto transition-all">
-            <div className="flex items-center gap-2 md:gap-3">
+            {/* Logo Wrapper with Click Event */}
+            <div 
+                onClick={onHome}
+                className="flex items-center gap-2 md:gap-3 cursor-pointer group hover:brightness-110 active:scale-95 transition-transform select-none"
+                title="Kembali ke Menu Utama"
+            >
                 {/* Logo */}
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-green-800 border-2 border-yellow-400 flex items-center justify-center shadow-[2px_2px_0_0_rgba(0,0,0,0.5)] rounded-sm relative overflow-hidden">
                     <span className="text-yellow-400 text-xl md:text-3xl font-bold relative z-10 -mt-1" style={{ fontFamily: 'serif' }}>ش</span>
@@ -24,12 +30,18 @@ export const Header: React.FC<HeaderProps> = ({ level, categoryLabel, isMuted, o
             </div>
             
             <div className="flex items-center gap-2 md:gap-4">
+                {/* Mute Button - Transparent, No Box, Material Icon */}
                 <button 
                     onClick={onToggleMute}
-                    className="w-8 h-8 md:w-10 md:h-10 bg-black/20 hover:bg-black/40 rounded border border-white/20 flex items-center justify-center text-sm md:text-xl active:scale-95 transition-transform"
+                    className={`
+                        p-2 rounded-full flex items-center justify-center transition-all active:scale-90
+                        ${isMuted ? 'text-red-300 hover:text-red-100' : 'text-white hover:text-yellow-300'}
+                    `}
                     title={isMuted ? "Unmute Musik" : "Mute Musik"}
                 >
-                    {isMuted ? '🔇' : '🔊'}
+                    <span className="material-icons">
+                        {isMuted ? 'volume_off' : 'volume_up'}
+                    </span>
                 </button>
 
                 {categoryLabel && (

@@ -8,6 +8,7 @@ interface GameSceneProps {
     title: string;
     description: string;
     category: CategoryType;
+    // onBack removed as it is handled by Header/Modal now
 }
 
 export const GameScene: React.FC<GameSceneProps> = ({ status, title, description, category }) => {
@@ -90,11 +91,12 @@ export const GameScene: React.FC<GameSceneProps> = ({ status, title, description
                     className={`
                         absolute z-20 transition-all duration-1000 origin-bottom
                         ${isWudu 
-                            ? `bottom-[20%] /* Grounded level with Faucet */
+                            ? `bottom-[8%] /* LOWERED POSITION to fix clipping */
                                w-[22%] h-auto aspect-[0.6] 
                                ${status === 'success' ? 'left-[45%]' : 'left-[15%]'}` 
                             : `/* Non-Wudu (Salat/Tauhid): Close Up / Center */
-                               bottom-[20%] left-1/2 transform -translate-x-1/2
+                               bottom-[8%] /* LOWERED POSITION */
+                               left-1/2 transform -translate-x-1/2
                                w-[32%] h-auto aspect-[0.6]` 
                         }
                     `}
@@ -102,7 +104,7 @@ export const GameScene: React.FC<GameSceneProps> = ({ status, title, description
 
                 {/* Faucet Structure (Only for Wudu specific titles) */}
                 {isWudu && (
-                <div className="absolute bottom-[20%] right-[15%] z-10 w-[15%] h-[40%]">
+                <div className="absolute bottom-[8%] right-[15%] z-10 w-[15%] h-[40%]">
                     {/* Vertical Pipe Stand */}
                     <div className="w-[25%] h-full bg-gray-500 border-2 border-gray-700 absolute bottom-0 right-0"></div>
                     
@@ -133,7 +135,7 @@ export const GameScene: React.FC<GameSceneProps> = ({ status, title, description
                 
                 {/* Decorative Prop for Sejarah (Pyramid/Dune) */}
                 {category === 'sejarah' && (
-                     <div className="absolute bottom-[20%] right-[5%] w-0 h-0 border-l-[6vw] border-l-transparent border-b-[8vw] border-b-yellow-800 border-r-[6vw] border-r-transparent opacity-80"></div>
+                     <div className="absolute bottom-[8%] right-[5%] w-0 h-0 border-l-[6vw] border-l-transparent border-b-[8vw] border-b-yellow-800 border-r-[6vw] border-r-transparent opacity-80"></div>
                 )}
 
             </div>

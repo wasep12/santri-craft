@@ -16,3 +16,5 @@ export interface LevelData {
 }
 
 export type GameStatus = 'idle' | 'success' | 'error';
+
+export type CategoryType = 'fiqh' | 'tauhid' | 'sejarah' | 'quiz' | 'calendar' | 'coming_soon';

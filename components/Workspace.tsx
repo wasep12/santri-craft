@@ -39,7 +39,7 @@ export const Workspace: React.FC<WorkspaceProps> = ({
     }, [levelData.id]); // Re-shuffle only when level ID changes
 
     return (
-        <section className="w-full md:w-1/2 flex-1 md:h-auto bg-gray-800 border-t-4 md:border-t-0 md:border-l-4 border-gray-900 p-2 md:p-4 flex flex-col gap-2 md:gap-4 text-white overflow-visible md:overflow-hidden z-30 relative">
+        <section className="w-full md:w-1/2 flex-1 md:h-auto bg-gray-800 border-t-4 md:border-t-0 md:border-l-4 border-gray-900 p-2 md:p-4 flex flex-col gap-2 md:gap-4 text-white overflow-visible md:overflow-hidden z-30 relative mb-20 md:mb-0">
 
             {/* Instruction Panel */}
             <div className="bg-gray-700 p-2 md:p-3 rounded border-2 border-gray-500 shadow-inner shrink-0">

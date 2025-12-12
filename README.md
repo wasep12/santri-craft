@@ -1,109 +1,169 @@
 # SantriCraft: Logic Quest 🕌🎮
 
-**SantriCraft: Logic Quest** adalah sebuah game edukasi berbasis web yang menggabungkan konsep *Computational Thinking* (Logika Algoritma) dengan materi Pendidikan Agama Islam (PAI). Game ini dirancang dengan gaya visual *Pixel Art* ala Minecraft untuk menarik minat anak-anak.
+![SantriCraft Banner](https://placehold.co/1200x400/16a34a/ffffff?text=SantriCraft:+Logic+Quest&font=roboto)
 
-## 🌟 Ide & Tema
+**SantriCraft: Logic Quest** adalah sebuah game edukasi berbasis web yang menggabungkan konsep *Computational Thinking* (Logika Algoritma) dengan materi Pendidikan Agama Islam (PAI). Game ini dirancang dengan gaya visual *Pixel Art* ala Minecraft untuk menarik minat anak-anak belajar Wudu, Salat, dan Sejarah Islam.
 
-*   **Tema:** Islamic Education x Voxel/Pixel Art.
-*   **Konsep Utama:** Mengajarkan urutan (sequence) ibadah seperti Wudu, Salat, dan Sejarah Islam menggunakan mekanisme *drag-and-drop* atau *click-to-order* layaknya menyusun blok logika pemrograman.
-*   **Target Audiens:** Anak-anak (SD/MI) atau pemula yang ingin belajar dasar Islam dengan cara interaktif.
+> **Status:** Beta Version 1.0  
+> **Built with:** [Google AI Studio](https://aistudio.google.com/)
 
-## 🛠️ Tech Stack & Tools
+---
 
-Project ini dibangun menggunakan teknologi web modern yang ringan dan cepat:
+## 🌟 Fitur Utama
 
-*   **Core:** React 19 (via CDN/ESM for quick prototyping).
-*   **Styling:** Tailwind CSS (Utility-first CSS framework).
-*   **Language:** TypeScript (untuk tipe data yang aman dan struktur kode yang jelas).
-*   **Icons:** Google Material Icons.
-*   **Font:** VT323 (Google Fonts) untuk nuansa retro pixel.
-*   **Assets:** CSS-based animations (tanpa gambar eksternal berat).
-*   **Audio:** Web Audio API (Synthesizer internal, tidak perlu file mp3 eksternal).
+1.  **Belajar Algoritma**: Menyusun urutan blok logika (Sequence) untuk menyelesaikan ibadah (misal: Urutan Wudu).
+2.  **Materi Islam Komprehensif**:
+    *   **Fiqh:** Wudu, Tayammum, Salat, Adzan.
+    *   **Tauhid:** Rukun Islam, Rukun Iman, Sifat Allah.
+    *   **Sejarah:** Kisah Nabi, Khulafaur Rasyidin.
+3.  **Visual Pixel Art**: Menggunakan aset CSS murni (tanpa gambar berat) untuk nuansa retro/voxel.
+4.  **Audio Synthesizer**: BGM dan SFX dihasilkan secara *real-time* oleh browser (Web Audio API), membuat game sangat ringan.
+5.  **Interaktif**: Animasi karakter dinamis yang bereaksi terhadap jawaban benar/salah.
+
+---
+
+## 🛠️ Tech Stack & AI Tools
+
+Project ini dibangun dengan teknologi modern yang ringan, dikembangkan dengan bantuan Artificial Intelligence.
+
+### Core Technology
+*   **Framework:** React 19
+*   **Language:** TypeScript
+*   **Styling:** Tailwind CSS (Utility-first)
+*   **Icons:** Google Material Icons
+*   **Font:** VT323 (Google Fonts)
+
+### 🤖 AI Development Environment
+Pengembangan kode ini dilakukan 100% menggunakan **Google AI Studio** dengan model **Gemini 2.0 Flash**.
+
+*   **Platform:** [Google AI Studio](https://aistudio.google.com/)
+*   **Model:** Gemini 2.0 Flash / Pro
+*   **Peran AI:** Bertindak sebagai *Senior Frontend Engineer* yang menangani struktur folder, logika game, dan desain UI.
+
+---
+
+## 📚 Panduan & Struktur Prompt (AI Prompt Engineering)
+
+Bagian ini adalah dokumentasi bagaimana game ini dibuat menggunakan AI. Anda dapat menggunakan struktur prompt di bawah ini sebagai panduan untuk membuat aplikasi serupa di Google AI Studio.
+
+### Fase 1: Inisialisasi & Peran (Roleplay)
+Tujuannya adalah menetapkan konteks agar AI menghasilkan kode yang bersih dan modular.
+
+**Prompt:**
+```text
+Act as a world-class senior frontend engineer. I want to build a web-based educational game called "SantriCraft". 
+
+Requirements:
+1. Tech Stack: React, Tailwind CSS, Vanilla JS structure (ES Modules).
+2. Structure: Do not use 'create-react-app'. Treat the current directory as root. Use a modular folder structure (components, data, utils).
+3. Goal: Level 1 is about "Wudu Algorithm". Users drag/click blocks to order them correctly.
+4. Output: Provide the full content of index.html, main.js (or App.tsx), and data files.
+```
+
+### Fase 2: Visual & Styling (The Vibe)
+Tujuannya mengubah tampilan standar menjadi gaya Minecraft/Pixel.
+
+**Prompt:**
+```text
+Change the UI design to have a "Minecraft/Voxel" vibe. 
+
+Specific Design Choices:
+1. Font: Import 'VT323' from Google Fonts.
+2. Buttons: Make them look like 3D blocks (use border-bottom-4, clear outlines).
+3. Colors: Use Earth tones (Green, Brown, Blue sky).
+4. Animations: When the character is happy, make it jump using CSS keyframes. 
+5. Scrollbar: Create a custom CSS scrollbar that looks like a stone block.
+```
+
+### Fase 3: Logika Game & Data
+Tujuannya memperluas konten game agar tidak hanya satu level.
+
+**Prompt:**
+```text
+I need to expand the game content. Please create a new file `data/gameData.ts`.
+
+Requirements:
+1. Create a database constant that contains multiple categories: 'Fiqh', 'Tauhid', 'Sejarah'.
+2. Each category should have at least 5 levels.
+3. Add a 'distractor' block mechanism (wrong blocks that shouldn't be selected).
+4. Update the validation logic in `App.tsx` to handle these new data structures.
+```
+
+### Fase 4: Fitur Lanjutan (Audio & Utilitas)
+Tujuannya menambahkan fitur kompleks tanpa menambah ukuran file (tanpa mp3).
+
+**Prompt:**
+```text
+Create a `utils/audio.ts` file. 
+
+Requirements:
+1. Do not use external MP3 files. Use the Web Audio API to create a synthesizer.
+2. Create a function `startBGM()` that plays a simple retro/8-bit loop melody.
+3. Create `playSound(type)` for 'click', 'success', and 'error' effects.
+4. Add a Mute button in the Header component to toggle this audio.
+```
+
+### Fase 5: Polesan Akhir (Refinement)
+Tujuannya memperbaiki UX dan bug.
+
+**Prompt:**
+```text
+Refine the UX. 
+1. Add a "Help" and "Info" button in the navbar that opens a Modal.
+2. Ensure the footer grass animation is always at the bottom but doesn't cover content.
+3. Add a "Quiz" mode that picks 5 random questions from a bank of 100 questions.
+```
+
+---
 
 ## 📂 Arsitektur Project
 
-Struktur folder dirancang modular agar mudah dikembangkan (Scalable):
-
 ```text
 santricraft/
-├── index.html              # Entry point aplikasi & konfigurasi Head
-├── index.tsx               # Mounting React root
-├── App.tsx                 # Komponen Utama & Routing Logic (State Management)
-├── types.ts                # Definisi Type TypeScript (Interface Global)
-├── README.md               # Dokumentasi Proyek
+├── index.html              # Entry point & Global CSS
+├── index.tsx               # React Root Mounting
+├── App.tsx                 # Main Logic Controller
+├── types.ts                # TypeScript Interfaces
 │
-├── components/             # Komponen UI Reusable
-│   ├── Header.tsx          # Navigasi atas (Logo, Volume, Level)
-│   ├── MainMenu.tsx        # Halaman pemilihan kategori
-│   ├── GameScene.tsx       # Visualisasi karakter & animasi hasil
-│   ├── Workspace.tsx       # Area kerja penyusunan blok (Logic Area)
-│   ├── BlockItem.tsx       # Komponen individual blok
-│   └── Character.tsx       # Karakter SVG dinamis
+├── components/             # UI Components (Atomic Design)
+│   ├── Header.tsx          # Navbar & Navigation
+│   ├── MainMenu.tsx        # Category Selection
+│   ├── GameScene.tsx       # Character & Environment Visualization
+│   ├── Workspace.tsx       # Logic Block Area
+│   ├── BlockItem.tsx       # Draggable/Clickable Block
+│   ├── Character.tsx       # SVG Character Component
+│   ├── QuizView.tsx        # Quiz Mode Component
+│   └── CalendarView.tsx    # Hijri Calendar Component
 │
-├── data/                   # Database Statis
-│   └── gameData.ts         # Berisi data Level, Kategori, dan Blok
+├── data/                   # Static Data
+│   ├── gameData.ts         # Levels & Block Definitions
+│   └── quizData.ts         # Question Bank (100 Items)
 │
-└── utils/                  # Fungsi Utilitas
-    └── audio.ts            # Simple Audio Synthesizer (BGM & SFX)
+└── utils/                  # Utilities
+    └── audio.ts            # Web Audio API Synthesizer
 ```
 
-## 📝 Dokumentasi Prompt (AI Generation)
+## 🚀 Cara Menjalankan (Local & Deploy)
 
-Website ini dibuat dengan bantuan AI menggunakan teknik *Iterative Prompting*. Berikut adalah ringkasan alur prompt yang digunakan:
+### Local Development
+1.  Pastikan Node.js terinstall.
+2.  Clone repository ini.
+3.  Jalankan perintah (jika menggunakan Vite/Simple Server):
+    ```bash
+    npx serve
+    ```
+    Atau buka `index.html` menggunakan Live Server di VS Code.
 
-1.  **Inisialisasi & Konsep:**
-    > "Buatkan purwarupa game edukasi bernama 'SantriCraft' dengan gaya visual Minecraft/Pixel. Gunakan React, Tailwind, dan TypeScript. Fokus pada Level 1: Algoritma Wudu. Struktur folder harus modular."
+### Deploy ke Vercel
+1.  Push kode ke GitHub.
+2.  Import project di Dashboard Vercel.
+3.  Set *Framework Preset* ke **Vite** atau **Other**.
+4.  Deploy!
 
-2.  **Refinement UI (Minecraft Vibe):**
-    > "Ubah tampilan agar lebih mirip game voxel. Tambahkan font 'VT323', efek tombol 3D (border-bottom tebal), dan animasi karakter sederhana menggunakan CSS shapes (tanpa image eksternal)."
+---
 
-3.  **Penambahan Fitur (Audio & Logika):**
-    > "Tambahkan fitur BGM dan SFX menggunakan Web Audio API (synthesizer) agar tidak perlu aset file suara. Buat logika validasi urutan blok yang benar untuk Wudu."
+## 📄 Lisensi
 
-4.  **Ekspansi Konten:**
-    > "Tambahkan kategori baru: Tauhid dan Sejarah. Buat masing-masing 5 level. Tambahkan blok-blok baru seperti Rukun Islam, Nama Nabi, dan Sifat Allah."
+**MIT License** - Bebas digunakan dan dimodifikasi untuk tujuan pendidikan.
 
-5.  **Polesan Akhir (UX):**
-    > "Perbaiki navigasi. Hilangkan tombol kembali yang mengambang, ganti dengan modal konfirmasi saat user ingin keluar game. Ganti icon emoji dengan Material Icons agar lebih profesional."
-
-## 🚀 Cara Deploy (Vercel)
-
-Aplikasi ini sangat mudah di-deploy ke Vercel karena berbasis React standar.
-
-1.  **Push ke GitHub:**
-    *   Buat repository baru di GitHub.
-    *   Push semua file project ini ke repository tersebut.
-
-2.  **Vercel Dashboard:**
-    *   Buka [Vercel](https://vercel.com).
-    *   Klik **"Add New..."** -> **"Project"**.
-    *   Import repository GitHub yang baru dibuat.
-
-3.  **Konfigurasi Build (Penting!):**
-    *   Karena project ini menggunakan struktur *no-bundler* (ESM via CDN di `index.html`), Anda bisa menggunakan pengaturan default "Vite" atau "Create React App" biasanya sudah cukup pintar mendeteksi, namun jika menggunakan cara manual:
-    *   *Build Command:* `npm run build` (Pastikan ada `package.json` dan `vite` terinstall jika ingin build production optimized).
-    *   *Alternatif (Static):* Jika dijalankan sebagai file statis murni, pastikan Vercel melayani `index.html` sebagai entry point.
-
-4.  **Klik Deploy:** Tunggu beberapa detik, dan website Anda online!
-
-## 📄 Lisensi (MIT License)
-
-Copyright (c) 2024 SantriCraft Developers
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+*Dibuat dengan ❤️ dan 🤖 oleh WASEP (Mahasiswa UIN SSC).*

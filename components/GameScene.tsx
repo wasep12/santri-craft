@@ -48,17 +48,17 @@ export const GameScene: React.FC<GameSceneProps> = ({ status, title, description
             sticky top-0 z-40 
             w-full md:w-1/2 
             bg-cover bg-center 
-            p-4 md:p-8
+            p-0 md:p-8
             flex flex-col justify-center items-center 
             overflow-hidden shrink-0
-            shadow-md md:shadow-none
+            shadow-none md:shadow-none
             h-[38vh] md:h-auto
         `}>
             {/* Dynamic Overlay */}
             <div className={`absolute inset-0 opacity-90 z-0 ${category === 'sejarah' ? 'bg-orange-100' : 'bg-[#87CEEB]'}`}></div>
 
             {/* Scene Container - MADE RESPONSIVE */}
-            <div className="relative z-10 w-full max-w-sm md:max-w-full aspect-square bg-[#87CEEB] border-4 border-gray-700 shadow-2xl rounded-xl overflow-hidden group mx-auto">
+            <div className="relative z-10 w-full h-full md:aspect-square md:max-w-lg bg-[#87CEEB] border-4 border-gray-700 shadow-2xl rounded-none md:rounded-xl overflow-hidden group mx-auto">
 
                 {/* Minecraft Sky & Clouds */}
                 <div className={`absolute top-0 w-full h-1/2 ${getBgColor()} overflow-hidden`}>
@@ -138,9 +138,9 @@ export const GameScene: React.FC<GameSceneProps> = ({ status, title, description
             </div>
 
             {/* Mission Card */}
-            <div className="relative z-10 mt-2 md:mt-6 bg-white border-2 md:border-4 border-gray-800 p-2 md:p-4 rounded-lg max-w-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] w-full">
-                <h3 className="text-sm md:text-xl text-orange-600 font-bold mb-1 uppercase text-center md:text-left">MISI: {title}</h3>
-                <p className="text-xs md:text-base text-gray-700 leading-tight text-center md:text-left">
+            <div className="relative z-10 mt-0 md:mt-6 bg-white border-2 md:border-4 border-gray-800 p-2 md:p-4 rounded-none md:rounded-lg w-full md:max-w-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+                <h3 className="text-sm md:text-2xl text-orange-600 font-bold mb-1 uppercase text-center md:text-left">MISI: {title}</h3>
+                <p className="text-xs md:text-lg text-gray-700 leading-tight text-center md:text-left">
                     {description}
                 </p>
             </div>
